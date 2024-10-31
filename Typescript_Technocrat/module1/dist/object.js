@@ -5,3 +5,4 @@ let user = {
     company: "TTI",
     course: "Next Level Web Development"
 };
+console.log(user);
