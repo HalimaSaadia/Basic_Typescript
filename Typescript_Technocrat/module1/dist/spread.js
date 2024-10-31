@@ -9,4 +9,3 @@ let mentor2 = {
     typescript: "mezba bhai"
 };
 let mentors = Object.assign(Object.assign({}, mentor1), mentor2);
-console.log(mentors)
