@@ -10,5 +10,6 @@
         contact: "0188000000",
     };
     const { name: { firstName }, } = user;
-    console.log(firstName);
+    const friends = ["x", "y", "z", "x.1", "x.2"];
+    const [, , besFriend, ...restFriend] = friends;
 }
