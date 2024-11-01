@@ -8,8 +8,9 @@ const poorUser = {
   name: "Halima",
   balance: 0,
   addBalance(balance: number): number {
-    return this.balance + balance;
+    return  this.balance + balance;
   },
 };
+
 const array : number[] = [1,2,3]
 const newArray :number [] = array.map((item:number) : number => item * item)
