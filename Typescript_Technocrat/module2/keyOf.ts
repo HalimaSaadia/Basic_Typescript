@@ -1,26 +1,28 @@
 {
   type Vehicle = {
-    bike: string;
     car: string;
-    airplan: string;
-  };
+    bike: string;
+    plane: string;
+  }
 
-  type owner1 = "bike" | "card" | "airplan"
-  type owner2 = keyof Vehicle
+  type owner = keyof Vehicle;
+  const person : owner = "car";
 
-  const person1 : owner2 = "bike"
+  type personType = {name:string, age:number}
 
-//   constrain with function
+  const getProperty = <T extends personType, Q extends keyof T>(obj:T, key: Q) => {
+  return obj[key]
+  }
+  const person2 = {
+    name:"Halima",
+    age: 42
+  }
+  console.log(getProperty(person2, "age"))
 
-const getPropertyValue =<T, X extends keyof T> (obj:T, key:X) =>{
-    console.log(obj[key])
-    return obj[key]
-}
+  const updateProperty  =<T extends personType, P extends keyof T>(obj:T, key:P, value :  T[P] ) : T => {
+    obj[key] = value
+      return obj
+  }
 
-const user = {
-    id: 111, 
-    name: "Halima",
-    email: "halima@gmail.com"
-}
-const result1 = getPropertyValue(user, "id")
+  console.log(updateProperty(person2, "age", 24))
 }

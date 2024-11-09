@@ -14,30 +14,37 @@
     }
   };
 
-  const result1 = kgToGm(100) as number
-  const result2 = kgToGm("100") as string
+  const result1 = kgToGm(100) as number;
+  const result2 = kgToGm("100") as string;
 
   type Todo = {
-    userId : number;
+    userId: number;
     id: number;
-    title:string;
-    completed:boolean;
-  }
+    title: string;
+    completed: boolean;
+  };
 
-  const isTodo = (todo : any) : todo is Todo => typeof todo.userId === "number" && typeof todo.id === "number" && typeof todo.title === "string"  && typeof todo.completed === "boolean"
+  const isTodo = (todo: any): todo is Todo =>
+    typeof todo.userId === "number" &&
+    typeof todo.id === "number" &&
+    typeof todo.title === "string" &&
+    typeof todo.completed === "boolean";
 
-  const getTodo = async()=>{
-    const res = await fetch("https://jsonplaceholder.typicode.com/todos/1")
-    const todo = await res.json()
-    if(isTodo(todo)){
-      console.log(`${todo.title}`)
-    }else{
-      console.log("Invalid Todo Data")
+  const getTodo = async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+    const todo = await res.json();
+    if (isTodo(todo)) {
+      console.log(`${todo.title}`);
+    } else {
+      console.log("Invalid Todo Data");
     }
-  
-  }
+  };
 
-  
-  getTodo()
+  getTodo();
 
+  const validateKeys = <T>(obj: T, keys: (keyof T)[]): boolean => {
+    return keys.every((key) => key in (obj as object));
+  };
+  const person = { name: "Alice", age: 25, email: "alice@example.com" };
+  console.log(validateKeys(person, ["name", "age"]));
 }
